@@ -38,3 +38,20 @@ function GetPlayersChoice() {
 }
 console.log(GetPlayersChoice());
 
+function playRound(playerSelection, computersSelection){
+    if (playerSelection === "Rock" && computersSelection === "Paper") {
+        console.log("You Lose! Paper beats Rock");
+    } else if (playerSelection === "Rock" && computersSelection === "Scissors") {
+        console.log("You Win! Rock beats Scissors");
+    } else if (playerSelection === "Paper" && computersSelection === "Rock") {
+        console.log("You Win! Paper beats Rock");
+    } else if (playerSelection === "Paper" && computersSelection === "Scissors") {
+        console.log("You Lose! Scissors beats Paper");
+    } else if (playerSelection === "Scissors" && computersSelection === "Paper") {
+        console.log("You Win! Scissors beats Paper");
+    } else if (playerSelection === "Scissors" && computersSelection === "Rock") {
+        console.log("You Lose! Rock beats Scissors");
+    } else {
+        console.log("It's a Tie!");
+    }
+}
