@@ -21,3 +21,20 @@ function GetComputersChoice() {
     
 }
 console.log(GetComputersChoice());
+
+function GetPlayersChoice() {
+    playerChoice = prompt("Rock, Paper, Scissors?");
+    switch(playerChoice) {
+        case "Rock":
+            return "Rock";
+        case "Paper":
+            return "Paper";
+        case "Scissors":
+            return "Scissors";
+        default:
+            alert("Please enter a valid choice, choice must Match prompt!");
+            return GetPlayersChoice();
+        }
+}
+console.log(GetPlayersChoice());
+
