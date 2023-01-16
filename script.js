@@ -6,7 +6,7 @@
 // If 'rock' meets'scissors' -'rock' wins
 // If 'paper' meets'scissors' -'scissors' wins
 // If computers choice matches players choice tie
-
+// create a game function that calls the check function in a 5* loop
 
 
 function GetComputersChoice() {
@@ -53,5 +53,15 @@ function playRound(playerSelection, computersSelection){
         console.log("You Lose! Rock beats Scissors");
     } else {
         console.log("It's a Tie!");
+    }
+}
+
+const playerSelection = GetPlayersChoice();
+const computersSelection = GetComputersChoice();
+console.log(playRound(playerSelection, computersSelection));
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound(playerSelection, computersSelection));
     }
 }
