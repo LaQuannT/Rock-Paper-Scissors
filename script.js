@@ -9,20 +9,15 @@
 
 
 
-let num = Math.random() * 3
-
-function computersChoice(num) {
-    switch (num) {
-        case 0:
-            return 'rock'
-        case 1:
-            return 'paper'
-        case 2:
-            return'scissors'
-    }
+function GetComputersChoice() {
+   switch(Math.floor(Math.random() * 3)) {
+    case 0:
+      return "Rock";
+    case 1:
+        return "Paper";
+    case 2:
+        return "Scissors";
+   }
+    
 }
-
-let choice = prompt('Rock, Paper, or Scissors?')
- if (choice !== 'Rock' || choice !== 'Paper' || choice !== 'Scissors') {
-    console.error('Usage: Rock, Paper, Scissors')
- }
+console.log(GetComputersChoice());
