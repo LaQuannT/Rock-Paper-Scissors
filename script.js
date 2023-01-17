@@ -20,10 +20,10 @@ function GetComputersChoice() {
    }
     
 }
-console.log(GetComputersChoice());
+
 
 function GetPlayersChoice() {
-    playerChoice = prompt("Rock, Paper, Scissors?");
+    let playerChoice = prompt("Rock, Paper, Scissors?");
     switch(playerChoice) {
         case "Rock":
             return "Rock";
@@ -36,7 +36,7 @@ function GetPlayersChoice() {
             return GetPlayersChoice();
         }
 }
-console.log(GetPlayersChoice());
+
 
 function playRound(playerSelection, computersSelection){
     if (playerSelection === "Rock" && computersSelection === "Paper") {
@@ -56,12 +56,13 @@ function playRound(playerSelection, computersSelection){
     }
 }
 
-const playerSelection = GetPlayersChoice();
-const computersSelection = GetComputersChoice();
-console.log(playRound(playerSelection, computersSelection));
+console.log(game());
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        console.log(playRound(playerSelection, computersSelection));
+            let playerSelection = GetPlayersChoice();
+            let computersSelection = GetComputersChoice();
+            playRound(playerSelection, computersSelection);
     }
+    return console.log("Game Over!");
 }
