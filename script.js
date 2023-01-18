@@ -56,8 +56,6 @@ function playRound(playerSelection, computersSelection){
     }
 }
 
-console.log(game());
-
 function game() {
     for (let i = 0; i < 5; i++) {
             let playerSelection = GetPlayersChoice();
@@ -66,3 +64,21 @@ function game() {
     }
     return console.log("Game Over!");
 }
+
+//console.log(game());
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+rock.addEventListener('click', function() {
+    playRound("Rock",GetComputersChoice());
+});
+
+paper.addEventListener('click', function() {
+    playRound("Paper",GetComputersChoice());
+});
+
+scissors.addEventListener('click', function() {
+    playRound("Scissors",GetComputersChoice());
+});
