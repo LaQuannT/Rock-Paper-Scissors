@@ -1,15 +1,6 @@
 // Get computers choice - pick random 0 - 3 num = rock,paper, or scissors
-// Get players choice - ask for input via prompt
-// Check if input is valid - input is case sensitive
-// Compare players choice to computers choice
-// If 'rock' meets 'paper' - 'paper' wins
-// If 'rock' meets'scissors' -'rock' wins
-// If 'paper' meets'scissors' -'scissors' wins
-// If computers choice matches players choice tie
-// create a game function that calls the check function in a 5* loop
 
-
-function GetComputersChoice() {
+function getComputersChoice() {
    switch(Math.floor(Math.random() * 3)) {
     case 0:
       return "Rock";
@@ -21,6 +12,7 @@ function GetComputersChoice() {
     
 }
 
+// Get players choice - ask for input via prompt
 
 function GetPlayersChoice() {
     let playerChoice = prompt("Rock, Paper, Scissors?");
@@ -31,12 +23,20 @@ function GetPlayersChoice() {
             return "Paper";
         case "Scissors":
             return "Scissors";
+
+        // Check if input is valid - input is case sensitive
+
         default:
             alert("Please enter a valid choice, choice must Match prompt!");
             return GetPlayersChoice();
         }
 }
 
+/* Compare players choice to computers choice
+If 'rock' meets 'paper' - 'paper' wins
+If 'rock' meets'scissors' -'rock' wins
+If 'paper' meets'scissors' -'scissors' wins
+If computers choice matches players choice tie */
 
 function playRound(playerSelection, computersSelection){
     if (playerSelection === "Rock" && computersSelection === "Paper") {
@@ -56,6 +56,8 @@ function playRound(playerSelection, computersSelection){
     }
 }
 
+// create a game function that calls the check function in a 5* loop
+
 function game() {
     for (let i = 0; i < 5; i++) {
             let playerSelection = GetPlayersChoice();
@@ -67,10 +69,14 @@ function game() {
 
 //console.log(game());
 
+// Use selectors to get nodes from index 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
+const results = document.querySelectorAll('#results');
 
+
+// Add event listeners to rock, paper, and scissors buttons
 rock.addEventListener('click', function() {
     playRound("Rock",GetComputersChoice());
 });
@@ -82,3 +88,4 @@ paper.addEventListener('click', function() {
 scissors.addEventListener('click', function() {
     playRound("Scissors",GetComputersChoice());
 });
+
