@@ -64,18 +64,6 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-// create a game function that calls the check function in a 5* loop
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-            let playerSelection = getPlayersChoice();
-            let computerSelection = getComputersChoice();
-            playRound(playerSelection, computerSelection);
-    }
-    return console.log("Game Over!");
-}
-
-//console.log(game());
 
 // Use selectors to get nodes from index 
 const rock = document.querySelector('#rock');
@@ -131,9 +119,19 @@ function displayWinner(...args) {
     if (playerWins === 5) {
         result.textContent = "Game Over! Player Wins!";
         results.append(result);
+        disableButtons();
     
          } else if (computerWins === 5) {
             result.textContent = "Game over! Computer Wins!";
             results.append(result);
-        }
+            disableButtons();
+    }
+
+    
+}
+
+function disableButtons() {
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
 }
