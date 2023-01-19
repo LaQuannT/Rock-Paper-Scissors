@@ -14,7 +14,7 @@ function getComputersChoice() {
 
 // Get players choice - ask for input via prompt
 
-function GetPlayersChoice() {
+function getPlayersChoice() {
     let playerChoice = prompt("Rock, Paper, Scissors?");
     switch(playerChoice) {
         case "Rock":
@@ -28,7 +28,7 @@ function GetPlayersChoice() {
 
         default:
             alert("Please enter a valid choice, choice must Match prompt!");
-            return GetPlayersChoice();
+            return getPlayersChoice();
         }
 }
 
@@ -38,21 +38,41 @@ If 'rock' meets'scissors' -'rock' wins
 If 'paper' meets'scissors' -'scissors' wins
 If computers choice matches players choice tie */
 
-function playRound(playerSelection, computersSelection){
-    if (playerSelection === "Rock" && computersSelection === "Paper") {
-        console.log("You Lose! Paper beats Rock");
-    } else if (playerSelection === "Rock" && computersSelection === "Scissors") {
-        console.log("You Win! Rock beats Scissors");
-    } else if (playerSelection === "Paper" && computersSelection === "Rock") {
-        console.log("You Win! Paper beats Rock");
-    } else if (playerSelection === "Paper" && computersSelection === "Scissors") {
-        console.log("You Lose! Scissors beats Paper");
-    } else if (playerSelection === "Scissors" && computersSelection === "Paper") {
-        console.log("You Win! Scissors beats Paper");
-    } else if (playerSelection === "Scissors" && computersSelection === "Rock") {
-        console.log("You Lose! Rock beats Scissors");
+function playRound(playerSelection, computerSelection){
+    if (playerSelection === "Rock" && computerSelection === "Paper") {
+        result.textContent = "You Lose! Paper beats Rock";
+        results.append(result);
+        return;
+
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+        result.textContent = "You Win! Rock beats Scissors";
+        results.append(result);
+        return;
+
+    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+        result.textContent = "You Win! Paper beats Rock";
+        results.append(result);
+        return;
+
+    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+        result.textContent = "You Lose! Scissors beats Paper";
+        results.append(result);
+        return;
+
+    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+        result.textContent = "You win! Scissors beats Paper";
+        results.append(result);
+        return;
+
+    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+        result.textContent = "You Lose! Rock beats Scissors";
+        results.append(result);
+        return;
+
     } else {
-        console.log("It's a Tie!");
+        result.textContent = "It's a Tie!";
+        results.append(result);
+        return;
     }
 }
 
@@ -60,9 +80,9 @@ function playRound(playerSelection, computersSelection){
 
 function game() {
     for (let i = 0; i < 5; i++) {
-            let playerSelection = GetPlayersChoice();
-            let computersSelection = GetComputersChoice();
-            playRound(playerSelection, computersSelection);
+            let playerSelection = getPlayersChoice();
+            let computerSelection = getComputersChoice();
+            playRound(playerSelection, computerSelection);
     }
     return console.log("Game Over!");
 }
@@ -73,19 +93,19 @@ function game() {
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
-const results = document.querySelectorAll('#results');
-
+const results = document.querySelector('#results');
+const result = document.createElement('p');
 
 // Add event listeners to rock, paper, and scissors buttons
 rock.addEventListener('click', function() {
-    playRound("Rock",GetComputersChoice());
+    playRound("Rock",getComputersChoice());
 });
 
 paper.addEventListener('click', function() {
-    playRound("Paper",GetComputersChoice());
+    playRound("Paper",getComputersChoice());
 });
 
 scissors.addEventListener('click', function() {
-    playRound("Scissors",GetComputersChoice());
+    playRound("Scissors",getComputersChoice());
 });
 
