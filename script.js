@@ -85,6 +85,7 @@ const results = document.querySelector('#results');
 const result = document.createElement('p');
 const scores = document.getElementById('scores');
 
+
 // Add event listeners to rock, paper, and scissors buttons
 rock.addEventListener('click', function() {
     playRound("Rock",getComputersChoice());
@@ -99,34 +100,40 @@ scissors.addEventListener('click', function() {
     playRound("Scissors",getComputersChoice());
 });
 
-/* TODO: Create a function that keeps track of scores
-    Display the running scores
-    Announce a winner when a player reaches 5 points */
 
+// variable to hold scores
 let playerScore = 0, computerScore = 0;
+
+// Display running scores - increments by one for each round won
 
 function displayScore(winner) {
     if (winner === 'player') {
         playerScore++;
         scores.textContent =`Player: ${playerScore} | Computer: ${computerScore}`;
+        displayWinner(playerScore, computerScore);
         return playerScore;
         
     } else if (winner === "computer") {
         computerScore++;
         scores.textContent =`Player: ${playerScore} | Computer: ${computerScore}`;
+        displayWinner(playerScore, computerScore);
         return computerScore;
 
     }
 }
 
-/*
-if (playerScore === 5) {
-    result.textContent = "Game Over! Player Wins!";
-    results.append(result);
+// Announce a winner when player or computer has 5 wins
 
-     } else if (computerScore === 5) {
-        result.textContent = "Game over! Computer Wins!";
-         results.append(result);
-    }
-*/ 
- 
+function displayWinner(...args) {
+    let playerWins = args[0];
+    let computerWins = args[1];
+
+    if (playerWins === 5) {
+        result.textContent = "Game Over! Player Wins!";
+        results.append(result);
+    
+         } else if (computerWins === 5) {
+            result.textContent = "Game over! Computer Wins!";
+            results.append(result);
+        }
+}
