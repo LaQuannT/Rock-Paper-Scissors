@@ -72,6 +72,7 @@ const scissors = document.querySelector('#scissors');
 const results = document.querySelector('#results');
 const result = document.createElement('p');
 const scores = document.getElementById('scores');
+const replay = document.getElementById('replay');
 
 
 // Add event listeners to rock, paper, and scissors buttons
@@ -87,6 +88,7 @@ paper.addEventListener('click', function() {
 scissors.addEventListener('click', function() {
     playRound("Scissors",getComputersChoice());
 });
+
 
 
 // variable to hold scores
@@ -134,4 +136,6 @@ function disableButtons() {
     rock.disabled = true;
     paper.disabled = true;
     scissors.disabled = true;
+    replay.style.display = '';
+
 }
